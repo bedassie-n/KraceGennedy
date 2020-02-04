@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <head>
     <title>Weather Forecast</title>
-    <link rel = "stylesheet" type = "test/css" href = "pageStyle.css"/>
+    <link rel = "stylesheet" type = "test/css" href = "style.css"/>
 </head>
 <body>
-    <table>
-        <tr>
-            <th></th>
-            <th>Kingston</th>
-            <th>Montego Bay</th>
-        </tr>
-        <tr>
-            <!--Forecast Data-->
-            <td>
-                Today - 
-            </td>
-        </tr>
-        <tr>
-           <td>Tomorrow - </td>
-        </tr>
-        <tr>
-            <td> Next Day</td>
-        </tr>
-        <tr>
-            <td>Day 4</td> 
-        </tr>
-        <tr>
-            <td>Day 5</td>
-        </tr>
-    </table>
-
+    <div id = "KingstonContainer">
+        <div id = "KingstonDescription">
+            <h1>Kingston</h1>
+            <div id = "weatherMainKingston">
+                <div id = "weatherConditionKingston"></div>
+                <div><img id = "documentIconImgK"></div>
+            </div>
+        </div>
+    </div>
+    <div id = "MontegoBayContainer">
+        <div id = "MontegoBayDescription">
+            <h1>Montego Bay</h1>
+            <div id = "weatherMainMontegoBay">
+                <div id = "weatherConditionMontegoBay"></div>
+                <div><img id = "documentIconImgMB"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
