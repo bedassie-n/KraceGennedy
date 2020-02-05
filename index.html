@@ -2,25 +2,29 @@
 <head>
     <title>Weather Forecast</title>
     <link rel = "stylesheet" type = "test/css" href = "style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-    <div id = "KingstonContainer">
+    <div id = "KingstonContainer" class="full-height">
         <div id = "KingstonDescription">
             <h1>Kingston</h1>
-            <div id = "weatherMainKingston">
+            <div id = "weatherMainKingstonToday">
+                <div id = "KingstonDayAndDate"></div>
                 <div id = "weatherConditionKingston"></div>
                 <div><img id = "documentIconImgK"></div>
             </div>
         </div>
     </div>
-    <div id = "MontegoBayContainer">
+    <div id = "MontegoBayContainer" class="full-height">
         <div id = "MontegoBayDescription">
             <h1>Montego Bay</h1>
             <div id = "weatherMainMontegoBay">
+                <div id = "MontegoBayDayAndDate"></div>
                 <div id = "weatherConditionMontegoBay"></div>
                 <div><img id = "documentIconImgMB"></div>
             </div>
         </div>
     </div>
+    <script src = "script.js"></script>
 </body>
 </html>
