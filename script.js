@@ -7,8 +7,21 @@ function getKingstonWeather() {
     var result;
     $.get(`https://api.openweathermap.org/data/2.5/forecast?id=3489854&APPID=`+appId, function(data, status) {
         if(status == 'success') {
+            var weatherDescription= document.getElementById("KingstonDescription");
+            for(i = 1; i < 6; i++) {
+                let dayAndDate = document.getElementById(`KingstonDayAndDate${i}`);
+                let weatherCondition = document.getElementById(`weatherConditionKingston${i}`);
+                let weatherIcon = document.getElementById(`documentIconImgK${i}`);
+
+                weatherIcon.src = 'http://openweathermap.org/img/wn/'+data.list[0].weather[0].icon+'.png';
+
+            }
+            
+            
+            
+            
             //alert("Data: " + data + "\nStatus: " + status)
-            switch(data.list[0].weather[0].main){
+            /*switch(data.list[0].weather[0].main){
                 case 'Clear':
                     document.getElementById("KingstonContainer").style.backgroundImage = 'url("clearSky.jpg")';
                     break;
@@ -28,8 +41,8 @@ function getKingstonWeather() {
                     break;
 
                 default:
-                    break;
-            }
+                    break;*/
+            
         }
     })
 }
@@ -37,8 +50,16 @@ function getMontegoBayWeather() {
     var result;
     $.get(`https://api.openweathermap.org/data/2.5/forecast?id=3489460&APPID=`+appId, function(data, status) {
         if(status == 'success') {
+            var weatherDescription= document.getElementById("MontegoBayDescription");
+            for(i = 1; i < 6; i++) {
+                let dayAndDate = document.getElementById(`MontegoBayDayAndDate${i}`);
+                let weatherCondition = document.getElementById(`weatherConditionMontegoBay${i}`);
+                let weatherIcon = document.getElementById(`documentIconImgMB${i}`);
+
+                weatherIcon.src = 'http://openweathermap.org/img/wn/'+data.list[0].weather[0].icon+'.png';
+            }
             //alert("Data: " + data + "\nStatus: " + status)
-            switch(data.list[0].weather[0].main){
+            /*switch(data.list[0].weather[0].main){
                 case 'Clear':
                     document.getElementById("MontegoBayContainer").style.backgroundImage = 'url("clearSky.jpg")';
                     break;
@@ -58,8 +79,8 @@ function getMontegoBayWeather() {
                     break;
 
                 default:
-                    break;
-            }
+                    break;*/
+            
         }
     })
 }
