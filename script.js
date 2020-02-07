@@ -13,22 +13,13 @@ function getWeather(id, city) {
     $.get(`https://api.openweathermap.org/data/2.5/forecast?id=${id}&APPID=`+appId, function(data, status) {
         
         if(status == 'success') {
-            // Used to limit 1 time for each day in the 5 day forecast.
-            dateCheck = true;
-            // date to limit
-            var dateInQuestion;
-            //Used to track divisions for the 5 days.
             var element = 1;
             //Iterates through weather info for every three hours, as in JSON file.
             for(i = 0; i < (data.list).length; i++) {
                 //returns date in the form '2020-01-01'
-                currentDate = (data.list[i].dt_txt.split(" "))[0];
-                //if limit has not been reached (limit is 1)
-                if(dateCheck == true){
-                    //Indicate limit has been reached.
-                    dateCheck = false;
-                    //returns date in the form '2020-01-01'
-                    dateInQuestion = (data.list[i].dt_txt.split(" "))[0];
+                currentTime = (data.list[i].dt_txt.split(" "))[1];
+                //if time is 9:00 am since thats when most persons are travelling to work. (7 am would be more appropriate but not available with API.
+                if(currentTime == "09:00:00"){
 
                     // Get elements for each day
                     var weatherDescription= document.getElementById(`weatherCondition${city}${element}`);
@@ -48,10 +39,6 @@ function getWeather(id, city) {
                     dayAndDate.innerHTML =  date.toString();
                     //displays description of forecast
                     weatherDescription.innerHTML = data.list[i].weather[0].description;
-                }//skips to the next day
-                 else if(dateInQuestion != currentDate){
-                    dateCheck = true;
-                    //increments division in HTML
                     element += 1;
                 }
             }
