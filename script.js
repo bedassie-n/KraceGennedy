@@ -1,4 +1,4 @@
-//Version 1.0.1
+//Version 1.1
 
 //Personal OpenWeatherAPI Key
 let appId = "f53fbf01c28e747d1a37c1514dad5367";
