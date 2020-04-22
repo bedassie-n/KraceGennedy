@@ -4,7 +4,7 @@
 let appId = "f53fbf01c28e747d1a37c1514dad5367";
 let KingstonID = "3489854"
 let MontegoBayID = "3489460"
-/*Makes use of jQuery API, instead of fetch API. Receives JSON file with 5 Day weather details 
+/* Makes use of jQuery API, instead of fetch API. Receives JSON file with 5 Day weather details 
   and sets HTML webpage info accordingly for Kingston.
 */ 
 
@@ -28,15 +28,17 @@ function getWeather(id, city) {
                     let weatherIcon = document.getElementById(`documentIconImg${city}${element}`);
 
                     //gets date and time field from JSON file
-                    dateTime = data.list[i].dt_txt.split(" ");
-                    //splits it into seperate string ints
-                    dArr = (dateTime[0].split("-") +","+ dateTime[1].split(":")).split(",");
+                    dateTime = data.list[i].dt//.split(" ");
+                    //splits it into seperate string ints 
+                    
                     //creates a Date Object with parsed string ints
-                    date = new Date(parseInt(dArr[0],10),parseInt(dArr[1]-1,10),parseInt(dArr[2]),parseInt(dArr[3],10),parseInt(dArr[4],10),parseInt(dArr[5],10));
+                    //year, month, day, hours, minutes, seconds, milliseconds
+                    //date = new Date(parseInt(dArr[0],10),parseInt(dArr[1]-1,10),parseInt(dArr[2]),parseInt(dArr[3],10),parseInt(dArr[4],10),parseInt(dArr[5],10));
+                    newDate = new Date(dateTime*1000);
                     //assigns suitable icon based on weather conditions
                     weatherIcon.src = `http://openweathermap.org/img/wn/${data.list[i].weather[0].icon}.png`;
                     //displays time of weather condition forecast
-                    dayAndDate.innerHTML =  date.toString();
+                    dayAndDate.innerHTML =  newDate.toString();
                     //displays description of forecast
                     weatherDescription.innerHTML = data.list[i].weather[0].description;
                     element += 1;
